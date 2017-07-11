@@ -1,0 +1,13 @@
+# Mac.
+.DS_STORE
+
+# Node.
+node_modules
+npm-debug.log
+
+# Webstorm
+.idea
+
+# User Data
+# Note: May occasionally need forced update
+data.json
