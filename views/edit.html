@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <!--Import Google Icon Font-->
+    <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!--Import materialize.css-->
+    <link type="text/css" rel="stylesheet" href="../node_modules/materialize-css/bin/materialize.css"  media="screen,projection"/>
+    <link href="../assets/css/styles.css" type="text/css" rel="stylesheet">
+    <link href="../node_modules/simplemde/dist/simplemde.min.css" type="text/css" rel="stylesheet">
+    <!--Let browser know website is optimized for mobile-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta charset="UTF-8">
+</head>
+
+<body class="blue lighten-5">
+
+
+
+<nav>
+
+    <div class="nav-wrapper blue " style="padding-left: 40px">
+        <a href="#" class="brand-logo"> Adipisici </a>
+        <ul id="nav-mobile" class="right hide-on-med-and-down">
+            <li><a href="objects.html"> Objects </a></li>
+            <li><a href="#"> Endpoints </a></li>
+            <li><a href="#"> Users </a></li>
+            <li><a href="#"> Integrations </a></li>
+            <li><a href="#"> Analytics </a></li>
+        </ul>
+    </div>
+</nav>
+<nav>
+
+    <div class="nav-wrapper blue darken-1" style="padding-left: 20px">
+
+        <div class="col s12">
+            <a href="site.html" class="breadcrumb">Computationist</a>
+            <a href="./objects.html" class="breadcrumb">Objects</a>
+            <a href="./object.html" class="breadcrumb">Posts</a>
+            <a href="#" class="breadcrumb">Proof by Flooding</a>
+        </div>
+
+    </div>
+
+</nav>
+
+
+<div id = "main-content" >
+
+    <div style="height: 50px; overflow: hidden">
+        <a class="btn-floating yellow darken-1" style="float: right; margin-right: 0px;"><i class="material-icons">settings</i></a>
+    </div>
+
+
+
+
+    <textarea class = "markdown-editor">
+
+    </textarea>
+
+
+
+
+
+
+
+
+
+
+
+</div>
+
+
+
+
+<!--Import jQuery before materialize.js-->
+<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+<script type="text/javascript" src="../node_modules/materialize-css/bin/materialize.js"></script>
+<script type="text/javascript" src="../node_modules/simplemde/dist/simplemde.min.js"></script>
+
+
+
+<script>
+
+    $(document).ready( function() {
+
+        $('#menu').click( function() {
+
+            $('.tap-target').tapTarget('open');
+
+        });
+
+        $('.markdown-editor').each( function( el ) {
+
+            var simplemde = new SimpleMDE( { element : el } );
+            simplemde.value("default value");
+
+        } );
+
+
+
+    });
+
+</script>
+
+
+</body>
+</html>

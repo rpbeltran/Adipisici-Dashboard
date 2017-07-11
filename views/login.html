@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <!--Import Google Icon Font-->
+    <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!--Import materialize.css-->
+    <link type="text/css" rel="stylesheet" href="../node_modules/materialize-css/bin/materialize.css"  media="screen,projection"/>
+    <link href="../assets/css/styles.css" type="text/css" rel="stylesheet">
+    <!--Let browser know website is optimized for mobile-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+</head>
+
+
+
+<body class="blue lighten-5">
+
+
+
+<nav>
+
+    <div class="nav-wrapper blue " style="padding-left: 40px">
+        <a class="brand-logo"> Adipisici </a>
+    </div>
+</nav>
+<nav>
+
+    <div class="nav-wrapper blue darken-1" style="padding-left: 20px">
+
+        <div class="col s12">
+            <a class="breadcrumb"> Connect to Adipisici Instance </a>
+        </div>
+    </div>
+
+</nav>
+
+
+<div id = "main-content">
+
+
+
+    <div class="row" style="max-width: 850px;">
+        <form class="col s12">
+
+
+            <h4 class="center-align"> Connect to Adipisici Instance </h4>
+
+            <br>
+            <br>
+
+            <div class="row">
+
+                <div class="input-field col s9">
+                    <input id="adipisici_url" type="text" class="validate">
+                    <label for="adipisici_url"> Adipisici Instance (URL) </label>
+                </div>
+
+                <div class="input-field col s3">
+                    <input id="remember_adipisici_url" type="checkbox" class="validate">
+                    <label for="remember_adipisici_url"> Remember </label>
+                </div>
+
+            </div>
+
+
+            <div class="row">
+
+                <div class="input-field col s9">
+                    <input id="username" type="text" class="validate">
+                    <label for="username"> Username </label>
+                </div>
+
+                <div class="input-field col s3">
+                    <input id="remember_username" type="checkbox" class="validate">
+                    <label for="remember_username"> Remember </label>
+                </div>
+
+            </div>
+
+            <div class="row">
+
+                <div class="input-field col s9">
+                    <input id="password" type="password" class="validate">
+                    <label for="password"> Password </label>
+                </div>
+
+            </div>
+
+            <div class="row">
+
+                <br>
+                <br>
+
+                <a id="connect_button" class="waves-effect waves-light btn" style="width: 100%">Connect</a>
+
+            </div>
+
+
+        </form>
+    </div>
+
+
+
+</div>
+
+
+
+
+
+
+
+<!--Import jQuery before materialize.js-->
+<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+<script type="text/javascript" src="../node_modules/hammerjs/hammer.min.js"></script>
+<script type="text/javascript" src="../node_modules/materialize-css/bin/materialize.js"></script>
+<script type="text/javascript" src="../assets/js/jquery.tablesorter.min.js"></script>
+
+
+
+<script>
+
+    $(document).ready( function() {
+
+        Materialize.updateTextFields();
+
+    });
+
+
+    $('#connect_button').click( function() {
+
+        // ----- THIS IS CALLED WHEN CONNECT BUTTON IS CLICKED
+
+        var adipisici_url = $("#adipisici_url").val();
+
+        var paramaters = {
+            user : $("#username").val(),
+            password : $("#password").val()
+        };
+
+        var session;
+
+        const Session = require('../lib/Session');
+
+        var session = new Session( );
+
+        if( session.connect() ) {
+
+            alert( "Connection Successful" );
+
+            session.saveSession();
+
+            window.location = "objects.html";
+
+        } else {
+
+            alert ( "connection failed" );
+
+        }
+
+    });
+
+
+
+</script>
+
+
+
+</body>
+</html>
