@@ -118,7 +118,17 @@
 
 <script>
 
+    const fs = require("fs");
+    var data = JSON.parse( fs.readFileSync('data.json') );
+
+    const Session = require('../lib/Session');
+    var   session = new Session( );
+
+
     $(document).ready( function() {
+
+        $("#username").val( data.defaults.user );
+        $("#adipisici_url").val( data.defaults.url );
 
         Materialize.updateTextFields();
 
@@ -127,22 +137,23 @@
 
     $('#connect_button').click( function() {
 
-        // ----- THIS IS CALLED WHEN CONNECT BUTTON IS CLICKED
-
+        // Read Login form
+        var username = $("#username").val();
+        var password = $("#password").val();
         var adipisici_url = $("#adipisici_url").val();
 
-        var paramaters = {
-            user : $("#username").val(),
-            password : $("#password").val()
-        };
 
-        var session;
+        // Optionally remember username and url for future logins
+        data.defaults.user = $("#remember_adipisici_url")[0].checked ? username : "";
+        data.defaults.url  = $("#remember_username")[0].checked ? adipisici_url : "";
+        fs.writeFileSync( 'data.json', JSON.stringify(data), 'utf8' );
 
-        const Session = require('../lib/Session');
 
-        var session = new Session( );
+        // Set session url
+        session.url = adipisici_url;
 
-        if( session.connect() ) {
+        // Attempt to authenticate connection
+        if( session.connect( username, password ) ) {
 
             alert( "Connection Successful" );
 
