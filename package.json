@@ -5,6 +5,7 @@
   "dependencies": {
     "electron": "^1.6.10",
     "express": "^4.15.3",
+    "materialize-css": "^0.99.0",
     "request": "^2.81.0"
   },
   "scripts": {
