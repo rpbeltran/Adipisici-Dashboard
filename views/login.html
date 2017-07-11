@@ -55,7 +55,7 @@
                 </div>
 
                 <div class="input-field col s3">
-                    <input id="remember_adipisici_url" type="checkbox" class="validate">
+                    <input id="remember_adipisici_url" type="checkbox" class="def_true validate">
                     <label for="remember_adipisici_url"> Remember </label>
                 </div>
 
@@ -70,7 +70,7 @@
                 </div>
 
                 <div class="input-field col s3">
-                    <input id="remember_username" type="checkbox" class="validate">
+                    <input id="remember_username" type="checkbox" class="def_true validate">
                     <label for="remember_username"> Remember </label>
                 </div>
 
@@ -129,6 +129,8 @@
 
         $("#username").val( data.defaults.user );
         $("#adipisici_url").val( data.defaults.url );
+
+        $('.def_true').prop('checked', true);
 
         Materialize.updateTextFields();
 

@@ -90,12 +90,15 @@
 
 <script>
 
+    const Session = require('../lib/Session');
+    var   session = new Session( );
+    session.loadSession();
+
     $('#menu').click(function() {
 
         $('.tap-target').tapTarget('open');
 
     });
-
 
     $(document).ready(function() {
 

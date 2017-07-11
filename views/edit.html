@@ -82,6 +82,10 @@
 
 <script>
 
+    const Session = require('../lib/Session');
+    var   session = new Session( );
+    session.loadSession();
+
     $(document).ready( function() {
 
         $('#menu').click( function() {
