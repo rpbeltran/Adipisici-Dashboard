@@ -51,7 +51,7 @@
 
                 <div class="input-field col m9 s12">
                     <input id="adipisici_url" type="text" class="validate">
-                    <label for="adipisici_url"> Adipisici Instance (URL) </label>
+                    <label for="adipisici_url"> Adipisici Instance URL (include application protocol) </label>
                 </div>
 
                 <div class="input-field col m3 s12">
@@ -114,8 +114,6 @@
 <script type="text/javascript" src="../node_modules/materialize-css/dist/js/materialize.js"></script>
 <script type="text/javascript" src="../assets/js/jquery.tablesorter.min.js"></script>
 
-
-
 <script>
 
     const fs = require("fs");
@@ -154,20 +152,16 @@
         // Set session url
         session.url = adipisici_url;
 
+
         // Attempt to authenticate connection
-        if( session.connect( username, password ) ) {
-
-            alert( "Connection Successful" );
-
+        var skip_auth = true; // For dev purposes, enable to skip authentication
+        if( skip_auth || session.connect( username, password ) ) {
             session.saveSession();
-
             window.location = "objects.html";
-
         } else {
-
-            alert ( "connection failed" );
-
+            Materialize.toast( 'Uh Oh! Attempted Connection Failed </span>', 5000, 'red darken-2');
         }
+
 
     });
 
