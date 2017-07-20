@@ -142,16 +142,13 @@
         var password = $("#password").val();
         var adipisici_url = $("#adipisici_url").val();
 
-
         // Optionally remember username and url for future logins
         data.defaults.user = $("#remember_adipisici_url")[0].checked ? username : "";
         data.defaults.url  = $("#remember_username")[0].checked ? adipisici_url : "";
         fs.writeFileSync( 'data.json', JSON.stringify(data), 'utf8' );
 
-
         // Set session url
         session.url = adipisici_url;
-
 
         // Attempt to authenticate connection
         var skip_auth = true; // For dev purposes, enable to skip authentication
@@ -161,7 +158,6 @@
         } else {
             Materialize.toast( 'Uh Oh! Attempted Connection Failed </span>', 5000, 'red darken-2');
         }
-
 
     });
 

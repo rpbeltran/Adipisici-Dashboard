@@ -24,9 +24,9 @@
     <div class="nav-wrapper blue " style="padding-left: 40px">
         <a href="#" class="inject-site-name brand-logo"> </a>
         <ul id="nav-mobile" class="right hide-on-med-and-down">
-            <li><a href="sass.html"> Objects </a></li>
-            <li><a href="sass.html"> Endpoints </a></li>
-            <li><a href="collapsible.html"> Users </a></li>
+            <li><a href="#"> Objects </a></li>
+            <li><a href="#"> Endpoints </a></li>
+            <li><a href="#"> Users </a></li>
         </ul>
     </div>
 </nav>
@@ -96,18 +96,19 @@
         objects.forEach( function( obj ) {
 
             obj_list.html(
-                    obj_list.html() +
-                    '\n<tr>\n' +
-                    '   <td>' + obj.name + '</td>\n' +
-                    '   <td>\n' +
-                    '   <a class="waves-effect waves-light btn green" href="./object.html" style="margin-right: 4px; width : 175px;">Edit Entries </a>\n' +
-                    '   <a class="waves-effect waves-light btn yellow darken-2" style="width:175px;">reconfigure</a>\n' +
-                    '   </td>\n' +
-                    '</tr>\n' );
+                obj_list.html() +
+                '\n<tr>\n' +
+                '   <td>' + obj.name + '</td>\n' +
+                '   <td>\n' +
+                '   <a class="waves-effect waves-light btn green" href="./object.html?name='+obj.name+'" style="margin-right: 4px; width : 175px;">Edit Entries </a>\n' +
+                '   <a class="waves-effect waves-light btn yellow darken-2" style="width:175px;">reconfigure</a>\n' +
+                '   </td>\n' +
+                '</tr>\n'
+            );
         } );
 
     }).catch( function( err ) {
-        Materialize.toast( 'Uh Oh! Our Connection failed!', 15000, 'red darken-2');
+        Materialize.toast( 'Uh Oh! Our Connection failed!', 10000, 'red darken-2');
         console.error( err );
     });
 
